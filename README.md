@@ -54,11 +54,19 @@ Revenue is tracked through the Payments entity, which records transactions assoc
 
 Query 1: 
 
+<img width="458" height="98" alt="Screenshot 2026-04-03 at 7 27 48 PM" src="https://github.com/user-attachments/assets/e18f7d5e-4c20-4330-844d-e660e83fafdf" />
+<img width="238" height="121" alt="Screenshot 2026-04-03 at 7 27 55 PM" src="https://github.com/user-attachments/assets/a3626247-ddfb-4301-ab6a-7162293df7ff" />
+
+
 **Explanation**: This query lists out each Studio Room ID, the total number of classes hosted in that room, and the total equipment value assigned to that room. It does this by joining the Equipment, Studio_Rooms, and Classes tables, then grouping the results by each Studio Rooms’ unique ID. The query also uses functions such as COUNT to calculate the amount of classes held in each room and SUM with ROUND to calculate the total equipment value in each room. The HAVING clause limits the results to rooms that have hosted at least 3 classes.
 
 **Business reasoning**: This query is useful to management because it helps identify which studio rooms are used most often and how much equipment value is tied to those rooms. By comparing room usage with equipment investment, managers can make better decisions about scheduling, maintenance, and resource allocation. It also helps them visualize whether the rooms with the heaviest class traffic are being supported with the appropriate level of equipment investment.
 
 Query 2:
+
+<img width="558" height="107" alt="Screenshot 2026-04-03 at 7 27 05 PM" src="https://github.com/user-attachments/assets/d71cd401-b6eb-4784-8981-228414e1e734" />
+<img width="453" height="158" alt="Screenshot 2026-04-03 at 7 27 11 PM" src="https://github.com/user-attachments/assets/be6f3f8b-250c-4adc-a0ec-04b17e4eb5f5" />
+
 
 **Explanation**: This query displays each trainer’s first and last name, total revenue generated from membership payments from members assigned to that trainer, the average membership payment amount, and the total number of payments counted for that trainer. It does this by joining the Payments, Members, Location, and Trainers tables, then grouping the results by trainer name. The query uses functions including SUM to calculate total revenue, AVG to calculate the average payment amount, and COUNT to count the number of payments. The ROUND function is used to format the revenue and payment values to two decimal places. The HAVING clause limits the results to only trainers whose grouped payments total more than $500.
 
@@ -66,12 +74,18 @@ Query 2:
 
 Query 3:
 
+<img width="572" height="91" alt="Screenshot 2026-04-03 at 7 26 37 PM" src="https://github.com/user-attachments/assets/21c59466-d685-4ac6-aa22-a62c30a135b6" />
+<img width="369" height="152" alt="Screenshot 2026-04-03 at 7 26 32 PM" src="https://github.com/user-attachments/assets/103a4547-e464-4ffe-a125-94ff9fa558a3" />
+
+
 **Explanation**: This query displays each class type, the total number of reviews it received, and the average rating for that class type rounded to the nearest whole number. It does this by joining the Class Reviews, Attendance Logs, Classes, and Class Type tables to connect each review back to its corresponding class type. It then groups the results by classType so that all reviews for the same type of class are summarized together. It uses COUNT to calculate the total number of reviews and AVG with ROUND to calculate the rounded average rating. The HAVING clause ensures that only class types with at least 3 reviews are included, making the results more reliable and meaningful.
 
 **Business reasoning**: This query is useful because it helps management identify which types of classes consistently receive strong feedback from members. By focusing only on class types with at least 3 reviews, the results are based on a more dependable amount of feedback rather than isolated opinions. This can help managers decide which class offerings should be expanded, promoted more heavily, or used as benchmarks for improving lower-performing class types.
 
 
 Query 4:
+
+<img width="501" height="178" alt="Screenshot 2026-04-03 at 7 26 08 PM" src="https://github.com/user-attachments/assets/6ce4c82d-9c18-4c30-ae1a-9d9406574070" />
 
 
 
@@ -81,6 +95,7 @@ Query 4:
 
 Query 5: 
 
+<img width="418" height="258" alt="Screenshot 2026-04-03 at 7 25 51 PM" src="https://github.com/user-attachments/assets/9c2bdd2f-63d4-4a2f-b681-a89a923bde27" />
 
 
 **Explanation**: This query shows the trainers with a higher average class rating than the average class rating for their location. This query uses a correlated subquery to match the trainers to the average class rating for their location. The query also utilizes multi-join and the ‘concat()’ function. 
@@ -88,6 +103,8 @@ Query 5:
 **Business reasoning**: The query is useful because it shows managers who are above and beyond at their respective locations. This is a way to review performance and reward trainers who are exceeding expectations. 
 
 Query 6:
+
+<img width="500" height="292" alt="Screenshot 2026-04-03 at 7 25 29 PM" src="https://github.com/user-attachments/assets/a0f2ef8c-22c0-4078-8fc7-dff5c9c29f01" />
 
 
 
@@ -97,6 +114,9 @@ Query 6:
 
 Query 7: 
 
+<img width="422" height="226" alt="Screenshot 2026-04-03 at 7 25 05 PM" src="https://github.com/user-attachments/assets/597b7247-1b47-4cc0-b980-393f2793b0e0" />
+
+
 
 **Explanation**: This query displays each studio location along with the total number of class absences recorded as No-Show. It does this by joining the Location, Members, and Attendance_Logs tables so each member’s attendance record can be connected back to their studio location. The WHERE clause filters the results to include only attendance records marked as No-Show, so the query only considers members who were marked absent. The results are then grouped by locCity, and COUNT(*) is used to calculate the total number of no-shows for each location.
 
@@ -104,6 +124,9 @@ Query 7:
 **Business reasoning**: This query is useful because it helps management identify which studio locations experience the highest levels of absenteeism. Locations with frequent no-shows may be facing issues such as poor class scheduling, inconvenient time slots, areas of weak member engagement, or necessary improvements in reminder systems. By spotting these trends, managers can improve scheduling decisions, strengthen attendance reminder processes, and better align class offerings with member demand to reduce wasted capacity.
 
 Query 8: 
+
+<img width="423" height="198" alt="Screenshot 2026-04-03 at 7 24 38 PM" src="https://github.com/user-attachments/assets/49e50cf1-9680-4e2a-91df-cf0c01f25e46" />
+
 
 
 **Explanation**: This query calculates the number of referrals made by members and displays only members who have referred more than one new member. The results are ordered in descending order by the number of referrals.
@@ -118,6 +141,8 @@ Managers are able to see which members are contributing the most to the referral
 
 Query 9:
 
+<img width="493" height="383" alt="Screenshot 2026-04-03 at 7 23 53 PM" src="https://github.com/user-attachments/assets/30c409b3-ff02-4eef-b456-59948bbd3b75" />
+<img width="467" height="326" alt="Screenshot 2026-04-03 at 7 24 01 PM" src="https://github.com/user-attachments/assets/a554f4ad-9a3b-4c03-8a72-6a0a1de69df4" />
 
 
 
@@ -129,6 +154,9 @@ Query 9:
 
 
 Query 10:
+
+
+<img width="504" height="306" alt="Screenshot 2026-04-03 at 7 21 43 PM" src="https://github.com/user-attachments/assets/eb5a816a-4fbc-4c3e-9cc2-46b868f3e76b" />
 
 
  
